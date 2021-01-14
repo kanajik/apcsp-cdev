@@ -29,7 +29,7 @@ printStudent(students);
 int main()
 {
 char input[256];
-int getInputNumber()
+int getInputNumber();
   // an array of students
   //xxx students;
 
