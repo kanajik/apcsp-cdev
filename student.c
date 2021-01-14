@@ -7,7 +7,7 @@
 struct Student {
 char firstName[50];
 char lastName[50];
-int age[100];
+unsigned int age;
 };
 
 void printStudent(struct Student* student)
@@ -29,7 +29,7 @@ printStudent(students);
 int main()
 {
 char input[256];
-
+int getInputNumber()
   // an array of students
   //xxx students;
 
