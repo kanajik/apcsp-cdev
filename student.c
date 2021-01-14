@@ -21,7 +21,7 @@ void printAllStudents(struct Student students[], int num)
 {
   // call printStudent for each student in students
 for (int i = 0; i < num; i++) {
-printStudent(students);
+printStudent(&students[i]);
 }
 }
 
