@@ -29,9 +29,7 @@ printStudent(students);
 int main()
 {
 char input[256];
-char fname[50];
-char lname[50];
-char age[100];
+
   // an array of students
   //xxx students;
 
@@ -57,15 +55,15 @@ char age[100];
       // enter a new student
 printf("First name: ");
 fgets(input, 50, stdin);
-sscanf(input, "%s", fname);
+sscanf(input, "%s", students[numStudents].firstName);
 
 printf("Last name: ");
 fgets(input, 50, stdin);
-sscanf(input, "%s", lname);
+sscanf(input, "%s", students[numStudents].lastName);
 
 printf("Age: ");
 fgets(input, 100, stdin);
-sscanf(input, "%d", age);
+students[numStudents].age = getInputNumber();
 
       numStudents++;
     ;}
