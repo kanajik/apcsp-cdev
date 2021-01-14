@@ -62,7 +62,6 @@ fgets(input, 50, stdin);
 sscanf(input, "%s", students[numStudents].lastName);
 
 printf("Age: ");
-fgets(input, 100, stdin);
 students[numStudents].age = getInputNumber();
 
       numStudents++;
