@@ -107,10 +107,10 @@ if (fp) {
  int match = fscanf("%s %s %s %s", fbuff, lbuff, abuff, idbuff);
 if (match == 4) {  
 if (key != 0) {
-  caesarDecrypt(fbuff);
-  caesarDecrypt(lbuff); 
-  caesarDecrypt(abuff);
-  caesarDecrypt(idbuff);
+  caesarDecrypt(fbuff, key);
+  caesarDecrypt(lbuff, key); 
+  caesarDecrypt(abuff, key);
+  caesarDecrypt(idbuff, key);
   }
 
   int age;
