@@ -32,7 +32,7 @@ void createStudent(char* fname, char* lname, int age, int id)
   }
 
 
-Student* st = (student*)malloc(sizeof(student));
+Student* st = (students*)malloc(sizeof(student));
   st->fname = (char)malloc((strlen(fname)+1)*sizeof(char));
   st->lname = (char)malloc((strlen(lname)+1)*sizeof(char));
   strcpy(st->fname, fname);
@@ -58,7 +58,7 @@ void deleteStudents()
   // iterate over the students array deleting every student and setting te pointer
   // values to 0 and adjusting the numStudents to 0
   for (int i = 0; i < numStudents; i++) {
-   deleteStudent(student[i]);
+   deleteStudent(students[i]);
    students[i]=0;
  }
   numStudents = 0;
