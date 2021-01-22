@@ -1,72 +1,85 @@
+//
+// student.c
+//
+
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "student.h"
+#include "encrypt.h"
 
 
+const char* STUFILE = "studentdata.txt";
 
-// student structure
-//struct Student...
-struct Student {
-char firstName[50];
-char lastName[50];
-unsigned int age;
-};
+// keeps track of the number of students in the students array
+int numStudents = 0;
 
-void printStudent(struct Student* student)
+// holds the student pointer array
+Student* students[100] = {0};
+
+
+void createStudent(char* fname, char* lname, int age, int id)
 {
-printf("Student: %s %s\n", student->firstName, student->lastName);
-printf("Age: %d\n", student->age);
+  // createStudent dynamically creates a Student on the heap and adds that
+  // student to the student array
+  //  - the firstName and lastName strings should be dynamically created
+  //    based on the size of the fname and lname args
 }
 
 
-void printAllStudents(struct Student students[], int num)
+void deleteStudent(Student* student)
 {
-  // call printStudent for each student in students
-for (int i = 0; i < num; i++) {
-printStudent(&students[i]);
-}
+  // free the memory associated with a student including the strings
 }
 
 
-int main()
+void deleteStudents()
 {
-char input[256];
-int getInputNumber();
-  // an array of students
-  //xxx students;
+  // iterate over the students array deleting every student and setting te pointer
+  // values to 0 and adjusting the numStudents to 0
+}
 
-  int numStudents = 0;
-  while (1)
-  {
-    char c;
-    printf("\nEnter a to add, p to print, q to quit:");
-    fgets(input, 256, stdin);
-    if (sscanf(input, "%c", &c) != 1) continue;
-    if (c == 'q') 
-    {
-      break;
-    }
-    else if (c == 'p')
-    {
-      // print all students
-      printAllStudents(students, numStudents);
-      continue;
-    }
-    else if (c == 'a')
-    {
-      // enter a new student
-printf("First name: ");
-fgets(input, 50, stdin);
-sscanf(input, "%s", students[numStudents].firstName);
 
-printf("Last name: ");
-fgets(input, 50, stdin);
-sscanf(input, "%s", students[numStudents].lastName);
+void saveStudents(int key)
+{
+  // save all students in the student array to a file 'studentdata.txt' overwriting
+  // any existing file
+  //   - the format of the file is one line per student as follows fname lname age id:
+  //       tom thumb 15 1234 
+  //       james dean 21 2345 
+  //       katy jones 18 4532
+  // the best way to do this is to convert the student data to a string using sprintf and then
+  // (optionally) encrypt the whole string before writing it to disk (see cdemo/fileio3.c)
+}
 
-printf("Age: ");
-students[numStudents].age = getInputNumber();
 
-      numStudents++;
-    ;}
+void loadStudents(int key)
+{
+  // load the students from the data file overwriting all exisiting students in memory
+  //  - make sure you first deleteStudents before loading new ones
+  //  - when loading it is best to load data into four strings and then (optionally) decrypt the
+  //    strings
+  //  - call createStudent to correctly create the students
+}
+
+
+void printStudent(Student* student)
+{
+  printf("  Student: %s %s\n", student->firstName, student->lastName);
+  printf("    age: %d\n", student->age);
+  printf("    id: %ld\n", student->id); 
+}
+
+
+void printStudents()
+{
+  for (int i = 0; i < numStudents; i++) {
+    printf("\n----- student %d ------\n", i);
+    printStudent(students[i]);
   }
-  
-  printf("\nGoodbye!\n");
 }
+
+
+
+
