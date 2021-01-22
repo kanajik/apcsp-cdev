@@ -24,12 +24,12 @@ void createStudent(char* fname, char* lname, int age, int id)
   // student to the student array
   //  - the firstName and lastName strings should be dynamically created
   //    based on the size of the fname and lname args
-  struct st {
+  struct Student {
   char fname[100];
   char lname[100];
   int age;
   long id;
-  }
+  };
 
 
 Student* st = (students*)malloc(sizeof(student));
